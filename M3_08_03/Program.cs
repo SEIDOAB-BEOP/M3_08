@@ -18,8 +18,8 @@ namespace BOOPM3_08_03
     }
     public class SquareFailingLiskov : Rectangle
     {
-        public new float Width { set => base.Width = base.Height = value; }
-        public new float Height { set => base.Width = base.Height = value; }
+        public new float Width { get; set; }
+        public new float Height { get; set; }
         public SquareFailingLiskov(float side)
         {
             Width = Height = side;
@@ -27,8 +27,8 @@ namespace BOOPM3_08_03
     }
     public class SquarePassingLiskov : Rectangle 
     { 
-        public override float Width { set => base.Width = base.Height = value; }
-        public override float Height { set => base.Width = base.Height = value; }
+        public override float Width { get; set; }
+        public override float Height { get; set; }
         public SquarePassingLiskov(float side)
         {
             Width = Height = side;
@@ -41,26 +41,22 @@ namespace BOOPM3_08_03
         {
             Console.WriteLine("Rectangle with various heights");
             var rc1 = new Rectangle(5, 15);
-            VariousHeights(rc1);
+            PresentRectangle(rc1);
 
             Console.WriteLine();
             Console.WriteLine("Square with various heights: Failing Liskov");
             var sq1 = new SquareFailingLiskov(5);
-            VariousHeights(sq1);
+            PresentRectangle(sq1);
 
             Console.WriteLine();
             Console.WriteLine("Square with various heights: Passing Liskov");
             var sq2 = new SquarePassingLiskov(5);
-            VariousHeights(sq2);
+            PresentRectangle(sq2);
         }
 
-        static void VariousHeights(Rectangle rc)
+        static void PresentRectangle(Rectangle rc)
         {
-            for (int i  = 1; i  < 4; i ++)
-            {
-                rc.Height *= i;
-                Console.WriteLine(rc);
-            }
+            System.Console.WriteLine(rc);
         }
     }
 }
