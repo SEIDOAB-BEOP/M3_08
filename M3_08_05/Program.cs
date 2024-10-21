@@ -7,8 +7,8 @@ namespace BOOPM3_08_05
         static void Main(string[] args)
         {
             //Both Decks now have the same instance - a singleton
-            DeckOfCards myDeck1 = DeckOfCards.GetSingleton();
-            DeckOfCards myDeck2 = DeckOfCards.GetSingleton();
+            DeckOfCards myDeck1 = DeckOfCards.Instance;
+            DeckOfCards myDeck2 = DeckOfCards.Instance;
 
             //First Card in Deck
             Console.WriteLine(myDeck1[0]);

@@ -29,14 +29,14 @@ namespace BOOPM3_08_05
 		}
 
 		//As the constructor is private the only way to get an instance is below Factory method
-		public static DeckOfCards GetSingleton()
+		public static DeckOfCards Instance { get
         {
 			if (_singleton == null)
             {
 				_singleton = new DeckOfCards();
             }
 			return _singleton;
-        }
+        }}
 
 		//I decide to use an indexer for the user to get a card by indexing the Deck
 		public int Count => deckOfCards.Length;
